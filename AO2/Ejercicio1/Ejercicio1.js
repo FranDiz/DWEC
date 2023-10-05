@@ -1,16 +1,16 @@
 function repetir(n, result = "") {
-    // Base case: when n is 0, return the result
     if (n === 0) {
         return result;
     } else {
-        // Recursive case: call the function with n-1 and update the result
         return repetir(n - 1, result + " bauuuba");
     }
 }
-const v = window.prompt();
+
+const v = window.prompt("Introduce un número:");
 const x = parseInt(v);
-if (typeof (x) != 'number'){
+
+if (isNaN(x)) {
     window.alert('Valor inválido');
-}else{
+} else {
     window.alert(repetir(x));
 }
