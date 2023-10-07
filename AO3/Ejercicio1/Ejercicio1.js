@@ -1,3 +1,16 @@
-const radio = prompt("Introduce el valor de un radio");
-window.alert(radio + "cm" + "  " + radio*2 + "cm" + "  " + (Math.PI*radio*2).toFixed(2)+"cm" + "  " + (Math.PI*radio*radio).toFixed(2) + "cm²"
- + "  " + (4*Math.PI*radio*radio).toFixed(2) +"cm²" + "  " + ((4/3)*Math.PI*radio*radio*radio).toFixed(2) + "cm³");
+function repetir(n, result = "") {
+    if (n === 0) {
+        return result;
+    } else {
+        return repetir(n - 1, result + " bauuuba");
+    }
+}
+
+const v = window.prompt("Introduce un número:");
+const x = parseInt(v);
+
+if (isNaN(x)) {
+    window.alert('Valor inválido');
+} else {
+    window.alert(repetir(x));
+}

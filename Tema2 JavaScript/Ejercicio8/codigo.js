@@ -1,13 +1,8 @@
 var palabra = "yo hago yoga hoy"
-
-var palindromo = ""
-for (var i = palabra.length; i>=0;){
-    console.log(palabra[i]);
-    i-=1
-    palindromo+=palabra[i]
-}
-if (palindromo==palabra){
-    console.log("Es palindroma");
-}    else{ 
-    console.log("No es palindroma");
+var espacios = palabra.replace(/[\W_]/g, "").toLowerCase();
+var palindromo = espacios.split("").reverse().join("");
+if (palabra == palindromo){
+    console.log("Es palíndroma")
+}else{
+    console.log("No es palíndroma")
 }
