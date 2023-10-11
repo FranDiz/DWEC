@@ -15,6 +15,7 @@ let suma = valores[1]+valores[5]
 let resta = valores[1]-valores[5]
 let multiplicacion= valores[1]*valores[5]
 let division = valores[1]/valores[5]
+let sobrante = valores[1]%valores[5]
 console.log('suma ' + suma)
 console.log('resta '+ resta)
 console.log('multiplicacion '+ multiplicacion)
