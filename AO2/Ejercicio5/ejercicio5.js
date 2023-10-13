@@ -1,49 +1,31 @@
-/*
-function init(){
-    let o1 = document.createElement("ol");
-    let li1 = document.createElement("li");
-    let li1Texto = document.createTextNode("Elemento ordenado 1");
-    let li1Desc = HTMLDetailsElement("Receta número 1")
-    li1.appendChild(li1Texto);
-    li1.appendChild(li1Desc);
-    o1.appendChild(li1);
+function mostrarRecetas(){
+    const recetas = ["Receta 1", "Receta 2", "Receta 3", "Receta 4"];
+    var listaOrdenada = document.createElement("ol");
     
-    document.body.appendChild(o1);
-    document.write(o1);
+    //Crea la lista ordenada a partir del array
+    for (i=0;i<recetas.length;i++){
+        var receta = document.createElement("li");
+        receta.textContent = recetas[i];
     
+        var instrucciones = document.createElement("details");
+        var summary = document.createElement("summary");
+        summary.textContent = "Instrucciones de la receta" + (i+1);
+        instrucciones.appendChild(summary);
+    
+        receta.appendChild(instrucciones);
+        listaOrdenada.appendChild(receta);
+        
+}
+    //Boton para eliminar receta (no funciona porque altera el array pero no la lista)
+    var inputEliminar = document.createElement("input");
+        inputEliminar.type = "number";
+        inputEliminar.placeholder = "NºReceta";
+    var boton = document.createElement("button");
+        boton.textContent = "Borrar receta";
+        boton.onclick = recetas.splice(inputEliminar,1);
+document.body.appendChild(listaOrdenada);
+document.body.appendChild(inputEliminar);
+document.body.appendChild(boton);
 }
 
-window.onload = init;
-*/
-
-function init() {
- 
-    let elementsOL = [
-        "Elemento ordenado 1",
-        "Elemento ordenado 2",
-        "Elemento ordenado 3"
-    ]
- 
-    let ol = createOL(elementsOL);
- 
-    document.body.getElementById("ol");
-    
- 
-}
- 
- 
-window.onload = addElement;
-
-document.body.onload = addElement;
-
-function addElement() {
-  // crea un nuevo div
-  // y añade contenido
-  var newDiv = document.createElement("div");
-  var newContent = document.createTextNode("Hola!¿Qué tal?");
-  newDiv.appendChild(newContent); //añade texto al div creado.
-
-  // añade el elemento creado y su contenido al DOM
-  var currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv);
-}
+mostrarRecetas();

@@ -1,16 +1,9 @@
-function repetir(n, result = "") {
-    if (n === 0) {
-        return result;
-    } else {
-        return repetir(n - 1, result + " bauuuba");
+var n = prompt("Introduce cuantos bauuuba quieres");
+    //Si no es valor númerico no muestra bauubas
+if (isNaN(n)){
+    document.write("Has introducido un valor invalido");
+}else{
+    for (i=0;i<n;i++){
+        document.write("bauuuba ");
     }
-}
-
-const v = window.prompt("Introduce un número:");
-const x = parseInt(v);
-
-if (isNaN(x)) {
-    window.alert('Valor inválido');
-} else {
-    window.alert(repetir(x));
 }
