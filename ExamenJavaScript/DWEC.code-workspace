@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "DWEC",
+			"path": ".."
+		},
+		{
+			"name": "DWES",
+			"path": "../../DWES"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "DWEC",
+		"liveServer.settings.port": 5501
+	}
+}

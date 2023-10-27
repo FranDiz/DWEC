@@ -1,0 +1,2 @@
+Para todos los ejercicios he usado el IDE Visual Studio Code para escribir el código, para probarlo lo he ejecutado con la extensión de VSCode "LiveServer" 
+que muestra los cambios en el codigo a tiempo real y en caso de necesitar depurar el codigo he usado otra extensión de VSCode, JavaScript Debbuger.
