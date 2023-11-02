@@ -14,7 +14,7 @@ let clientes = transaction.objectStore("clientes");
 
 function validarCliente(e){
     e.preventDefault()
-    const clienteValido = true;
+    let clienteValido = true;
     //Validación del nombre
     const nombreRegex = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/
     if (!nombreRegex.test(nombreCliente)){
@@ -42,10 +42,10 @@ function añadirCliente(e){
     e.preventDefault()
     if (validarCliente){
         let objetoCliente = {
-            nombre : nombreCliente,
-            email : emailCliente,
-            telefono : telefonoCliente,
-            empresa : empresaCliente
+            nombre,
+            email,
+            telefono,
+            empresa
         }
         clientes.add(objetoCliente)
     }
