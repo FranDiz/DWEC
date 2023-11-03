@@ -1,23 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
-    
-    //Creación BBDD
-    let db
-    let baseIndex = indexedDB.open("bbdd",1)
-    baseIndex.onupgradeneeded = function(e){
-        db = e.target.result;
-        db.createObjectStore ("clientes", {keyPath: 'id',autoIncrement: true});
-    };
-    
-    baseIndex.onsuccess = function(e) {
-        db = e.target.result;
-    };
 
-    baseIndex.onerror = function(e) {
-        console.log('Error al abrir/acceder a la base de datos IndexedDB');
-    };
-    
-    
+    const nombre = document.querySelector("#nombre");
+    const email = document.querySelector("#email");
+    const telefono = document.querySelector("#telefono");
+    const empresa = document.querySelector("#empresa");
+    const formulario = document.querySelector("#formulario");
 
+    nombre.addEventListener("blur", validar);
+    email.addEventListener("blur", validar);
+    telefono.addEventListener("blur", validar);
+    empresa.addEventListener("blur", validar);
+
+        function validar(e) {
+            if (e.target.value.trim() === "") {
+
+            mostraAlerta(`El campo ${e.target.id} es obligatorio`);
+    
+            } else {
+                console.log("Ha pasado la validación");
+            }
+        }
+
+      function mostraAlerta(mensaje){
+        const error = document.createElement("P");
+        error.textContent = mensaje;
+        error.classList.add("bg-red-600", "text-center", "text-white", "p-2");
+        formulario.appendChild(error);
+      }
 
 
     function validarCliente(nombreCliente, emailCliente, telefonoCliente, empresaCliente){
@@ -45,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return clienteValido;
     }
     
+
     function añadirCliente(e){
         e.preventDefault()
         const nombreCliente = document.querySelector("#nombre").value;
@@ -58,18 +68,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 email:emailCliente,
                 telefono:telefonoCliente,
                 empresa:empresaCliente
-            }
-            let transaccion = db.transaction("clientes", "readwrite");
-            let clientes = transaccion.objectStore("clientes");
-            let añadir = clientes.add(objetoCliente)
-            añadir.onsuccess = function(){
-                console.log('Cliente añadido');
-            }
-            añadir.onerror = function(){
-                console.log('Error al añadir');
             };
         }
     }
     document.getElementById("formulario").addEventListener("submit", añadirCliente);
-    
     })
