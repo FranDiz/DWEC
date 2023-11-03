@@ -1,11 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
     
     //Creación BBDD
+    let db
     let baseIndex = indexedDB.open("bbdd",1)
-    baseIndex.createObjectStore ("clientes", {keyPath: 'id'})
-    let clientes = transaction.objectStore("clientes");
+    baseIndex.onupgradeneeded = function(e){
+        db = e.target.result;
+        db.createObjectStore ("clientes", {keyPath: 'id',autoIncrement: true});
+    };
+    
+    baseIndex.onsuccess = function(e) {
+        db = e.target.result;
+    };
+
+    baseIndex.onerror = function(e) {
+        console.log('Error al abrir/acceder a la base de datos IndexedDB');
+    };
     
     
+
+
+
     function validarCliente(nombreCliente, emailCliente, telefonoCliente, empresaCliente){
         let clienteValido = true;
         //Validación del nombre
@@ -45,7 +59,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 telefono:telefonoCliente,
                 empresa:empresaCliente
             }
-            clientes.add(objetoCliente)
+            let transaccion = db.transaction("clientes", "readwrite");
+            let clientes = transaccion.objectStore("clientes");
+            let añadir = clientes.add(objetoCliente)
+            añadir.onsuccess = function(){
+                console.log('Cliente añadido');
+            }
+            añadir.onerror = function(){
+                console.log('Error al añadir');
+            };
         }
     }
     document.getElementById("formulario").addEventListener("submit", añadirCliente);
