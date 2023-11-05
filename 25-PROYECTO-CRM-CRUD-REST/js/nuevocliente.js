@@ -8,10 +8,10 @@ const empresa = document.getElementById("empresa");
 const boton = document.getElementById("boton");
 
 //Expresiones regulares
-const nombreRegex = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
-const emailRegex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-const telefonoRegex = /^\d{9}$/;
-const empresaRegex = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
+const nombreRegex = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/; //Solo letras incluyendo espacio entre estas
+const emailRegex = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;//Formato 'correo@gmail.com' y parecidos
+const telefonoRegex = /^\d{9}$/;//Valor numérico de 9 dígitos
+const empresaRegex = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;//Solo letras incluyendo espacio entre estos
 
 //Si todas se asigan true se puede enviar el formulario (ref en const validarFormulario y limpiarFormulario())
 let nombreValido = false;
