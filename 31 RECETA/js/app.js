@@ -224,8 +224,12 @@ function mostrarToast(mensaje){
 function obtenerFavoritos(){
   const favoritos = JSON.parse(localStorage.getItem("recetasFavoritos")) ?? []
   if (favoritos.length){
+    mostrarRecetas(favoritos)
     
   }
+  const noFavoritos = document.createElement("P")
+  noFavoritos.textContent = "No hay favoritos"
+  noFavoritos
 }
-
+fucntion
 }
