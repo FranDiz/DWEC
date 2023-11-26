@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     mensaje: '',
     id: 0
   }
-  let clave = parseInt(localStorage.getItem('clave')) || 0;
+  let clave = Number(localStorage.getItem('clave'))
 
   // Seleccionar los elementos de la interfaz
   const inputEmail = document.querySelector('#email')
