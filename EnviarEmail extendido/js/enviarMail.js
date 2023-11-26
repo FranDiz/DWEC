@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     comprobarEmail()
   }   
 
+  //Autogenerado del id
 function guardarMail(){
   clave+=1
   email.id = clave

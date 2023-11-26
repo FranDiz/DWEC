@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+//Obtiene la clave del email que se va a abrir
 function obtenerEmail(){
     let keys = Object.keys(localStorage)
     for (let key of keys){

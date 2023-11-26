@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 })
 
+//Clasifica las keys para solo seleccionar ID de correos
 function listaEmails(array){
     let keys = Object.keys(localStorage)
     for (let key of keys){
@@ -23,6 +24,7 @@ function listaEmails(array){
 }
  
 
+//Añade los campos de los correos a la tabla
 function emailsHTML(array) {
     array.forEach(mail => {
         const objetoMail = JSON.parse(mail);
